@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cosmix — Merge planets into galaxies</title>
+<meta name="description" content="Cosmix is a cosmic merge puzzle. Drop planets, match them, and grow asteroids into stars, quasars and black holes across eight galaxies. Free on Google Play.">
+<meta name="theme-color" content="#050816">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Cosmix — Merge planets into galaxies">
+<meta property="og:description" content="Drop, match and merge your way from a tiny asteroid to a black hole. Free on Google Play.">
+<meta property="og:image" content="https://sep-ai.github.io/cosmix/assets/og.jpg">
+<meta property="og:url" content="https://sep-ai.github.io/cosmix/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="stars" aria-hidden="true"></canvas>
+<div class="nebula" aria-hidden="true"></div>
+
+<header class="nav">
+  <a class="brand" href="#top"><img src="assets/icon.png" alt="" width="36" height="36"><span>COSMIX</span></a>
+  <a class="by" href="../seppymoo/"><img src="../seppymoo/assets/cow.webp" alt="" width="22" height="22">by seppymoo</a>
+  <nav>
+    <a href="#planets">Planets</a>
+    <a href="#boosts">Boosts</a>
+    <a href="#galaxies">Galaxies</a>
+    <a href="#modes">Modes</a>
+  </nav>
+  <a class="btn btn-sm" href="https://play.google.com/store/apps/details?id=com.sepai.cosmix">Get the game</a>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <section class="hero wrap">
+    <div class="hero-copy">
+      <p class="eyebrow">A cosmic merge puzzle</p>
+      <h1>Merge planets<br>into <span class="grad">galaxies.</span></h1>
+      <p class="lede">Drop a planet. Match two of a kind. Watch them fuse into something bigger. Grow a speck of rock into a sun, a pulsar, a quasar, and finally a black hole.</p>
+      <div class="cta-row">
+        <a class="btn play" href="https://play.google.com/store/apps/details?id=com.sepai.cosmix">
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M4 2.8v18.4c0 .6.7 1 1.2.7l15.6-9.2c.5-.3.5-1.1 0-1.4L5.2 2.1C4.7 1.8 4 2.2 4 2.8z"/></svg>
+          <span><small>Free on</small>Google Play</span>
+        </a>
+        <a class="btn ghost" href="#planets">How it works</a>
+      </div>
+      <ul class="stats">
+        <li><b>11</b><span>cosmic bodies</span></li>
+        <li><b>8</b><span>galaxies</span></li>
+        <li><b>2</b><span>game modes</span></li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <div class="orbit o1"><img src="assets/planets/sun.webp" alt=""></div>
+      <div class="orbit o2"><img src="assets/planets/ringed_planet.webp" alt=""></div>
+      <div class="orbit o3"><img src="assets/planets/moon.webp" alt=""></div>
+      <div class="phone tilt"><img src="assets/shots/gp5.webp" alt="Cosmix gameplay in the Triangulum galaxy" width="540" height="960"></div>
+    </div>
+  </section>
+
+  <!-- PLANET LADDER -->
+  <section id="planets" class="wrap section">
+    <p class="eyebrow">The evolution</p>
+    <h2>Two of a kind become one of something greater.</h2>
+    <p class="sub">Every merge climbs one step up the cosmic ladder. The higher you go, the bigger the score.</p>
+    <ol class="ladder" id="ladder"></ol>
+  </section>
+
+  <!-- BOOSTS -->
+  <section id="boosts" class="wrap section">
+    <p class="eyebrow">Boosts</p>
+    <h2>Bend the rules of physics.</h2>
+    <div class="boosts">
+      <article class="boost" style="--c:#4fc3ff">
+        <div class="phone small"><img src="assets/shots/swap.webp" alt="Swap boost" loading="lazy" width="540" height="960"></div>
+        <h3><span class="ico">⇄</span> Swap</h3>
+        <p>Tap two loose planets to trade places. Rescue a bad drop or line up the perfect merge.</p>
+      </article>
+      <article class="boost" style="--c:#b57bff">
+        <div class="phone small"><img src="assets/shots/reverse.webp" alt="Reverse Gravity boost" loading="lazy" width="540" height="960"></div>
+        <h3><span class="ico">⇡</span> Reverse Gravity</h3>
+        <p>Lift the whole board into the air, merge the two best pairs mid-flight for <b>double score</b>, then let it all crash back down.</p>
+      </article>
+      <article class="boost" style="--c:#ff9a3c">
+        <div class="phone small"><img src="assets/shots/meteor.webp" alt="Meteor Shower boost" loading="lazy" width="540" height="960"></div>
+        <h3><span class="ico">☄</span> Meteor Shower</h3>
+        <p>Rain meteors onto matching planets, chaining merges and clearing the clutter in a blaze of fire.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- GALAXIES -->
+  <section id="galaxies" class="wrap section">
+    <p class="eyebrow">The journey</p>
+    <h2>Eight galaxies. One way out.</h2>
+    <p class="sub">Score high enough and you'll jump to the next galaxy, each one deeper, stranger and harder than the last.</p>
+    <ol class="journey">
+      <li style="--g:#7fb2ff"><b>Milky Way</b><span>Your journey begins…</span></li>
+      <li style="--g:#b57bff"><b>Andromeda</b><span>The universe grows deeper…</span></li>
+      <li style="--g:#ff8a3c"><b>Triangulum</b><span>Gravity intensifies…</span></li>
+      <li style="--g:#3fe0a0"><b>Whirlpool</b><span>The cosmos churns…</span></li>
+      <li style="--g:#f5c542"><b>Sombrero</b><span>Few have reached this far…</span></li>
+      <li style="--g:#ff5a8a"><b>Black Eye</b><span>You stare into the abyss…</span></li>
+      <li style="--g:#9aa7c7"><b>Cartwheel</b><span>Only ruins remain out here…</span></li>
+      <li style="--g:#ffffff"><b>Cigar</b><span>Beyond this, there is only light…</span></li>
+    </ol>
+    <div class="gallery" aria-label="Screenshots">
+      <img src="assets/shots/gp1.webp" alt="Milky Way" loading="lazy">
+      <img src="assets/shots/gp3.webp" alt="Andromeda" loading="lazy">
+      <img src="assets/shots/gp6.webp" alt="Triangulum" loading="lazy">
+      <img src="assets/shots/gp2.webp" alt="Milky Way" loading="lazy">
+    </div>
+  </section>
+
+  <!-- MODES -->
+  <section id="modes" class="wrap section">
+    <p class="eyebrow">Game modes</p>
+    <h2>Chase the record, or just drift.</h2>
+    <div class="modes">
+      <article class="mode classic">
+        <h3>Classic</h3>
+        <p>The floor rises as you score and climb galaxies. Let planets pile past the top line and it's game over. How far can you get?</p>
+        <ul><li>Escalating difficulty</li><li>Personal best to beat</li><li>Every drop counts</li></ul>
+      </article>
+      <article class="mode zen">
+        <h3>Zen</h3>
+        <p>The floor barely moves and there's no game over. An overflowing planet is simply cleared away. Play at your own pace.</p>
+        <ul><li>No pressure</li><li>Separate best score</li><li>Perfect for winding down</li></ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="wrap final">
+    <img class="final-hole" src="assets/planets/black_hole.webp" alt="" loading="lazy">
+    <h2>The universe is waiting.</h2>
+    <p class="sub">Free to play on Android.</p>
+    <a class="btn play" href="https://play.google.com/store/apps/details?id=com.sepai.cosmix">
+      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M4 2.8v18.4c0 .6.7 1 1.2.7l15.6-9.2c.5-.3.5-1.1 0-1.4L5.2 2.1C4.7 1.8 4 2.2 4 2.8z"/></svg>
+      <span><small>Free on</small>Google Play</span>
+    </a>
+  </section>
+</main>
+
+<footer class="wrap footer">
+  <div class="brand"><img src="assets/icon.png" alt="" width="28" height="28"><span>COSMIX</span></div>
+  <nav><a href="../seppymoo/">More games by seppymoo</a><a href="privacy.html">Privacy Policy</a><a href="https://play.google.com/store/apps/details?id=com.sepai.cosmix">Google Play</a></nav>
+  <p>© 2026 <a href="../seppymoo/">seppymoo</a>. All rights reserved.</p>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

@@ -3,155 +3,157 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Cosmix — Merge planets into galaxies</title>
-<meta name="description" content="Cosmix is a cosmic merge puzzle. Drop planets, match them, and grow asteroids into stars, quasars and black holes across eight galaxies. Free on Google Play.">
-<meta name="theme-color" content="#050816">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Cosmix — Merge planets into galaxies">
-<meta property="og:description" content="Drop, match and merge your way from a tiny asteroid to a black hole. Free on Google Play.">
-<meta property="og:image" content="https://sep-ai.github.io/assets/og.jpg">
+<title>Sepehr Meshkinfam — AI engineer &amp; game developer</title>
+<meta name="description" content="Sepehr Meshkinfam: AI engineer working on computer vision and edge AI, and the game developer behind seppymoo and Cosmix.">
+<meta name="theme-color" content="#070a1a">
+<meta property="og:title" content="Sepehr Meshkinfam">
+<meta property="og:description" content="AI engineer & game developer. Creator of seppymoo and Cosmix.">
 <meta property="og:url" content="https://sep-ai.github.io/">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/png" href="assets/favicon.png">
-<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="seppymoo/assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Luckiest+Guy&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #070a1a;
+  --ink: #eef1ff;
+  --muted: #9aa3c7;
+  --line: rgba(160, 180, 255, .15);
+  --card: rgba(20, 26, 60, .55);
+  --accent: #8b7bff;
+  --yellow: #ffd23f;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; color: var(--ink); overflow-x: hidden;
+  font: 400 17px/1.65 "Space Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: radial-gradient(900px 600px at 85% -10%, #231a5c 0%, transparent 60%),
+              radial-gradient(800px 600px at -10% 40%, #0b2a52 0%, transparent 60%), var(--bg);
+}
+a { color: inherit; }
+img { max-width: 100%; display: block; }
+#stars { position: fixed; inset: 0; width: 100%; height: 100%; z-index: -1; }
+.wrap { width: min(980px, 100%); margin-inline: auto; padding-inline: 20px; }
+
+/* ABOUT */
+.about { display: grid; grid-template-columns: auto 1fr; gap: 48px; align-items: center; padding-block: calc(90px + env(safe-area-inset-top, 0px)) 40px; }
+.avatar {
+  width: 220px; height: 220px; border-radius: 50%; position: relative; flex: none;
+  display: grid; place-items: center; overflow: hidden;
+  background: conic-gradient(from 200deg, #4fc3ff, var(--accent), #ff7aa8, var(--yellow), #4fc3ff);
+  padding: 5px; box-shadow: 0 0 80px -10px rgba(139, 123, 255, .6);
+}
+.avatar > * { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
+.avatar .initials { display: grid; place-items: center; background: #0d1233; font: 700 64px/1 "Space Grotesk", sans-serif; letter-spacing: .04em; }
+.hello { margin: 0 0 6px; color: var(--accent); font-weight: 500; letter-spacing: .2em; text-transform: uppercase; font-size: 13px; }
+h1 { margin: 0; font-size: clamp(38px, 6vw, 64px); line-height: 1.05; letter-spacing: -.02em; }
+.role { margin: 10px 0 0; font-size: 20px; color: var(--muted); }
+.role b { color: var(--ink); font-weight: 500; }
+.bio { margin: 22px 0 0; color: #c9cfee; max-width: 58ch; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 22px 0 0; padding: 0; list-style: none; }
+.chips li { font-size: 13px; padding: 5px 12px; border-radius: 999px; border: 1px solid var(--line); background: rgba(255, 255, 255, .04); color: #d6dbf5; }
+.links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.link {
+  display: inline-flex; align-items: center; gap: 10px; padding: 10px 18px; border-radius: 12px;
+  border: 1px solid var(--line); background: var(--card); text-decoration: none; font-weight: 500;
+  transition: border-color .2s, transform .2s;
+}
+.link:hover { border-color: rgba(255, 255, 255, .4); transform: translateY(-2px); }
+.link svg { width: 20px; height: 20px; fill: currentColor; }
+
+@media (max-width: 760px) {
+  .about { grid-template-columns: 1fr; text-align: center; gap: 28px; padding-top: calc(50px + env(safe-area-inset-top, 0px)); }
+  .avatar { width: 170px; height: 170px; margin-inline: auto; }
+  .bio { margin-inline: auto; }
+  .chips, .links { justify-content: center; }
+}
+
+/* STUDIO BUTTON */
+.studio { padding-block: 60px 40px; text-align: center; }
+.studio h2 { margin: 0; font-size: 13px; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); }
+.studio .lead { margin: 8px auto 30px; font-size: clamp(24px, 3.4vw, 32px); font-weight: 700; max-width: 26ch; line-height: 1.2; }
+.moo {
+  display: block; width: min(520px, 100%); margin: 0 auto; text-decoration: none; color: #1e1733;
+  padding: 34px 30px 26px; border-radius: 32px; background: #fff7e8;
+  border: 4px solid #1e1733; box-shadow: 10px 10px 0 #7b5cff, 0 30px 80px -20px rgba(123, 92, 255, .6);
+  background-image: radial-gradient(rgba(30, 23, 51, .07) 2px, transparent 2px); background-size: 22px 22px;
+  transition: transform .2s cubic-bezier(.2, 1.4, .4, 1), box-shadow .2s;
+}
+.moo:hover { transform: translate(-4px, -4px) rotate(-1.5deg); box-shadow: 14px 14px 0 #7b5cff, 0 40px 90px -20px rgba(123, 92, 255, .8); }
+.moo:active { transform: translate(2px, 2px); box-shadow: 4px 4px 0 #7b5cff; }
+.moo img { width: 100%; }
+.moo .cta {
+  display: inline-block; margin-top: 18px; padding: 10px 22px; border-radius: 999px; border: 3px solid #1e1733;
+  background: #ffd23f; font: 400 20px/1 "Luckiest Guy", sans-serif; letter-spacing: .05em; box-shadow: 3px 3px 0 #1e1733;
+}
+
+footer { text-align: center; color: var(--muted); font-size: 14px; padding: 60px 20px calc(40px + env(safe-area-inset-bottom, 0px)); }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
 </head>
 <body>
 <canvas id="stars" aria-hidden="true"></canvas>
-<div class="nebula" aria-hidden="true"></div>
 
-<header class="nav">
-  <a class="brand" href="#top"><img src="assets/icon.png" alt="" width="36" height="36"><span>COSMIX</span></a>
-  <nav>
-    <a href="#planets">Planets</a>
-    <a href="#boosts">Boosts</a>
-    <a href="#galaxies">Galaxies</a>
-    <a href="#modes">Modes</a>
-  </nav>
-  <a class="btn btn-sm" href="https://play.google.com/store/apps/details?id=com.sepai.cosmix">Get the game</a>
-</header>
-
-<main id="top">
-  <!-- HERO -->
-  <section class="hero wrap">
-    <div class="hero-copy">
-      <p class="eyebrow">A cosmic merge puzzle</p>
-      <h1>Merge planets<br>into <span class="grad">galaxies.</span></h1>
-      <p class="lede">Drop a planet. Match two of a kind. Watch them fuse into something bigger. Grow a speck of rock into a sun, a pulsar, a quasar, and finally a black hole.</p>
-      <div class="cta-row">
-        <a class="btn play" href="https://play.google.com/store/apps/details?id=com.sepai.cosmix">
-          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M4 2.8v18.4c0 .6.7 1 1.2.7l15.6-9.2c.5-.3.5-1.1 0-1.4L5.2 2.1C4.7 1.8 4 2.2 4 2.8z"/></svg>
-          <span><small>Free on</small>Google Play</span>
-        </a>
-        <a class="btn ghost" href="#planets">How it works</a>
-      </div>
-      <ul class="stats">
-        <li><b>11</b><span>cosmic bodies</span></li>
-        <li><b>8</b><span>galaxies</span></li>
-        <li><b>2</b><span>game modes</span></li>
+<main class="wrap">
+  <section class="about">
+    <div class="avatar">
+      <!-- To use a photo: add assets/me.jpg and replace the div below with
+           <img src="assets/me.jpg" alt="Sepehr Meshkinfam"> -->
+      <div class="initials">SM</div>
+    </div>
+    <div>
+      <p class="hello">Hi, I'm</p>
+      <h1>Sepehr Meshkinfam</h1>
+      <p class="role"><b>AI engineer</b> by day, <b>game developer</b> by night.</p>
+      <p class="bio">I build computer vision and machine learning systems, from deploying detection models on edge devices like NVIDIA Jetson to research on model uncertainty and making AI more reliable at the edge. When I'm not training models, I make playful mobile games under my studio name, <b>seppymoo</b>.</p>
+      <ul class="chips">
+        <li>Computer Vision</li><li>Deep Learning</li><li>Edge AI</li><li>Python · PyTorch</li><li>Unity · C#</li><li>Game Design</li>
       </ul>
-    </div>
-    <div class="hero-art">
-      <div class="orbit o1"><img src="assets/planets/sun.webp" alt=""></div>
-      <div class="orbit o2"><img src="assets/planets/ringed_planet.webp" alt=""></div>
-      <div class="orbit o3"><img src="assets/planets/moon.webp" alt=""></div>
-      <div class="phone tilt"><img src="assets/shots/gp5.webp" alt="Cosmix gameplay in the Triangulum galaxy" width="540" height="960"></div>
-    </div>
-  </section>
-
-  <!-- PLANET LADDER -->
-  <section id="planets" class="wrap section">
-    <p class="eyebrow">The evolution</p>
-    <h2>Two of a kind become one of something greater.</h2>
-    <p class="sub">Every merge climbs one step up the cosmic ladder. The higher you go, the bigger the score.</p>
-    <ol class="ladder" id="ladder"></ol>
-  </section>
-
-  <!-- BOOSTS -->
-  <section id="boosts" class="wrap section">
-    <p class="eyebrow">Boosts</p>
-    <h2>Bend the rules of physics.</h2>
-    <div class="boosts">
-      <article class="boost" style="--c:#4fc3ff">
-        <div class="phone small"><img src="assets/shots/swap.webp" alt="Swap boost" loading="lazy" width="540" height="960"></div>
-        <h3><span class="ico">⇄</span> Swap</h3>
-        <p>Tap two loose planets to trade places. Rescue a bad drop or line up the perfect merge.</p>
-      </article>
-      <article class="boost" style="--c:#b57bff">
-        <div class="phone small"><img src="assets/shots/reverse.webp" alt="Reverse Gravity boost" loading="lazy" width="540" height="960"></div>
-        <h3><span class="ico">⇡</span> Reverse Gravity</h3>
-        <p>Lift the whole board into the air, merge the two best pairs mid-flight for <b>double score</b>, then let it all crash back down.</p>
-      </article>
-      <article class="boost" style="--c:#ff9a3c">
-        <div class="phone small"><img src="assets/shots/meteor.webp" alt="Meteor Shower boost" loading="lazy" width="540" height="960"></div>
-        <h3><span class="ico">☄</span> Meteor Shower</h3>
-        <p>Rain meteors onto matching planets, chaining merges and clearing the clutter in a blaze of fire.</p>
-      </article>
+      <div class="links">
+        <a class="link" href="https://github.com/Sep-AI">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.7 5.4-5.27 5.69.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"/></svg>
+          GitHub
+        </a>
+        <!-- LinkedIn: uncomment and set the URL
+        <a class="link" href="https://www.linkedin.com/in/YOUR-PROFILE">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+          LinkedIn
+        </a> -->
+      </div>
     </div>
   </section>
 
-  <!-- GALAXIES -->
-  <section id="galaxies" class="wrap section">
-    <p class="eyebrow">The journey</p>
-    <h2>Eight galaxies. One way out.</h2>
-    <p class="sub">Score high enough and you'll jump to the next galaxy, each one deeper, stranger and harder than the last.</p>
-    <ol class="journey">
-      <li style="--g:#7fb2ff"><b>Milky Way</b><span>Your journey begins…</span></li>
-      <li style="--g:#b57bff"><b>Andromeda</b><span>The universe grows deeper…</span></li>
-      <li style="--g:#ff8a3c"><b>Triangulum</b><span>Gravity intensifies…</span></li>
-      <li style="--g:#3fe0a0"><b>Whirlpool</b><span>The cosmos churns…</span></li>
-      <li style="--g:#f5c542"><b>Sombrero</b><span>Few have reached this far…</span></li>
-      <li style="--g:#ff5a8a"><b>Black Eye</b><span>You stare into the abyss…</span></li>
-      <li style="--g:#9aa7c7"><b>Cartwheel</b><span>Only ruins remain out here…</span></li>
-      <li style="--g:#ffffff"><b>Cigar</b><span>Beyond this, there is only light…</span></li>
-    </ol>
-    <div class="gallery" aria-label="Screenshots">
-      <img src="assets/shots/gp1.webp" alt="Milky Way" loading="lazy">
-      <img src="assets/shots/gp3.webp" alt="Andromeda" loading="lazy">
-      <img src="assets/shots/gp6.webp" alt="Triangulum" loading="lazy">
-      <img src="assets/shots/gp2.webp" alt="Milky Way" loading="lazy">
-    </div>
-  </section>
-
-  <!-- MODES -->
-  <section id="modes" class="wrap section">
-    <p class="eyebrow">Game modes</p>
-    <h2>Chase the record, or just drift.</h2>
-    <div class="modes">
-      <article class="mode classic">
-        <h3>Classic</h3>
-        <p>The floor rises as you score and climb galaxies. Let planets pile past the top line and it's game over. How far can you get?</p>
-        <ul><li>Escalating difficulty</li><li>Personal best to beat</li><li>Every drop counts</li></ul>
-      </article>
-      <article class="mode zen">
-        <h3>Zen</h3>
-        <p>The floor barely moves and there's no game over. An overflowing planet is simply cleared away. Play at your own pace.</p>
-        <ul><li>No pressure</li><li>Separate best score</li><li>Perfect for winding down</li></ul>
-      </article>
-    </div>
-  </section>
-
-  <!-- FINAL CTA -->
-  <section class="wrap final">
-    <img class="final-hole" src="assets/planets/black_hole.webp" alt="" loading="lazy">
-    <h2>The universe is waiting.</h2>
-    <p class="sub">Free to play on Android.</p>
-    <a class="btn play" href="https://play.google.com/store/apps/details?id=com.sepai.cosmix">
-      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M4 2.8v18.4c0 .6.7 1 1.2.7l15.6-9.2c.5-.3.5-1.1 0-1.4L5.2 2.1C4.7 1.8 4 2.2 4 2.8z"/></svg>
-      <span><small>Free on</small>Google Play</span>
+  <section class="studio">
+    <h2>My game studio</h2>
+    <p class="lead">Games I make, all under one very happy cow.</p>
+    <a class="moo" href="seppymoo/" aria-label="Open seppymoo, my game studio">
+      <img src="assets/seppymoo-logo.webp" alt="seppymoo">
+      <span class="cta">See my games →</span>
     </a>
   </section>
 </main>
 
-<footer class="wrap footer">
-  <div class="brand"><img src="assets/icon.png" alt="" width="28" height="28"><span>COSMIX</span></div>
-  <nav><a href="privacy.html">Privacy Policy</a><a href="https://play.google.com/store/apps/details?id=com.sepai.cosmix">Google Play</a></nav>
-  <p>© 2026 Cosmix. All rights reserved.</p>
-</footer>
+<footer>© 2026 Sepehr Meshkinfam</footer>
 
-<script src="main.js"></script>
+<script>
+(() => {
+  const c = document.getElementById("stars"), x = c.getContext("2d");
+  const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let s = [], w, h;
+  function size() {
+    const d = Math.min(devicePixelRatio || 1, 2);
+    w = innerWidth; h = innerHeight; c.width = w * d; c.height = h * d; x.setTransform(d, 0, 0, d, 0, 0);
+    s = Array.from({ length: Math.round(w * h / 3200) }, () => ({ x: Math.random() * w, y: Math.random() * h, r: Math.random() * 1.2 + .2, t: Math.random() * 6, v: Math.random() * .02 + .004 }));
+  }
+  function draw() {
+    x.clearRect(0, 0, w, h);
+    for (const p of s) { p.t += p.v; x.globalAlpha = .45 + Math.sin(p.t) * .4; x.fillStyle = "#fff"; x.beginPath(); x.arc(p.x, p.y, p.r, 0, 7); x.fill(); }
+    if (!still) requestAnimationFrame(draw);
+  }
+  addEventListener("resize", () => { size(); if (still) draw(); });
+  size(); draw();
+})();
+</script>
 </body>
 </html>
